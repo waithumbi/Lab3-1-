@@ -12,9 +12,9 @@ import java.sql.SQLException;
 
 /**
  *
- * @author badi
+ * @author ahmed
  */
-public class CrudOps {
+public class CrudOperations {
     private int studentID;
     private String fname, lname, degree, gender ;
     
@@ -80,7 +80,7 @@ public class CrudOps {
     public boolean save()
     {
         PreparedStatement pst = null;
-        Connection con = new ConnectingTo().connector();
+        Connection con = new DBConnector().connector();
         
         try{
                
@@ -105,7 +105,7 @@ public class CrudOps {
         {
         
         PreparedStatement pst = null;
-        Connection con = new ConnectingTo().connector();
+        Connection con = new DBConnector().connector();
         try{
                
             pst = con.prepareStatement("DELETE FROM student_details WHERE student_id = ?");
@@ -132,7 +132,7 @@ public class CrudOps {
         {
         ResultSet rs = null;
         PreparedStatement pst = null;
-        Connection con = new ConnectingTo().connector();
+        Connection con = new DBConnector().connector();
         
         // Check that the record exists
         try{
@@ -147,14 +147,14 @@ public class CrudOps {
         System.out.println("Which field would you like to update:\n"
                         + "1. Student ID\n2. First name\n"
                         + "3. Last Name\n4. Gender\n5. Programme" );
-        int param = DBConnector.scanner.nextInt();
+        int param = Lab_3.scanner.nextInt();
         
         // Depending on their selection, use setter to set value, and update database
         switch (param)
                     {
                     case 1:
                         System.out.println("Enter new ID for the student:");
-                        int i = DBConnector.scanner.nextInt();
+                        int i = Lab_3.scanner.nextInt();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "student_id = ? WHERE student_id = " 
                                 + getStudentID());
@@ -163,7 +163,7 @@ public class CrudOps {
                     break;
                     case 2 :
                         System.out.println("Enter new first name for the student:");
-                        String name = DBConnector.scanner.next();
+                        String name = Lab_3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "first_name = ? WHERE student_id = " 
                                 + getStudentID());
@@ -172,7 +172,7 @@ public class CrudOps {
                     break;
                     case 3 :
                         System.out.println("Enter new last name for the student:");
-                        String lname = DBConnector.scanner.next();
+                        String lname = Lab_3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "last_name = ? where student_id = " 
                                 + getStudentID());
@@ -181,7 +181,7 @@ public class CrudOps {
                     break;
                     case 4 :
                         System.out.println("Enter new gender for the student:");
-                        String g = DBConnector.scanner.next();
+                        String g = Lab_3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "gender = ? where student_id =  " 
                                 + getStudentID());
@@ -190,7 +190,7 @@ public class CrudOps {
                     break;
                     case 5 :
                         System.out.println("Enter new degree programme for the student:");
-                        String prog = DBConnector.scanner.next();
+                        String prog = Lab_3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "degree_programme = ? where student_id = "
                                 + getStudentID());
@@ -220,7 +220,7 @@ public class CrudOps {
     public boolean archiveRecord(int reg_number) {
         ResultSet rs = null; 
         PreparedStatement pst = null;
-        Connection con = new ConnectingTo().connector();
+        Connection con = new DBConnector().connector();
         
         try{
                 //Get the record from the database;
