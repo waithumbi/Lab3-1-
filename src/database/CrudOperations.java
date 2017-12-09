@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author ahmed
+ * @author NjeriWaithumbi
  */
 public class CrudOperations {
     private int studentID;
@@ -147,14 +147,14 @@ public class CrudOperations {
         System.out.println("Which field would you like to update:\n"
                         + "1. Student ID\n2. First name\n"
                         + "3. Last Name\n4. Gender\n5. Programme" );
-        int param = Lab_3.scanner.nextInt();
+        int param = Lab3.scanner.nextInt();
         
         // Depending on their selection, use setter to set value, and update database
         switch (param)
                     {
                     case 1:
                         System.out.println("Enter new ID for the student:");
-                        int i = Lab_3.scanner.nextInt();
+                        int i = Lab3.scanner.nextInt();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "student_id = ? WHERE student_id = " 
                                 + getStudentID());
@@ -163,7 +163,7 @@ public class CrudOperations {
                     break;
                     case 2 :
                         System.out.println("Enter new first name for the student:");
-                        String name = Lab_3.scanner.next();
+                        String name = Lab3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "first_name = ? WHERE student_id = " 
                                 + getStudentID());
@@ -172,7 +172,7 @@ public class CrudOperations {
                     break;
                     case 3 :
                         System.out.println("Enter new last name for the student:");
-                        String lname = Lab_3.scanner.next();
+                        String lname = Lab3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "last_name = ? where student_id = " 
                                 + getStudentID());
@@ -181,7 +181,7 @@ public class CrudOperations {
                     break;
                     case 4 :
                         System.out.println("Enter new gender for the student:");
-                        String g = Lab_3.scanner.next();
+                        String g = Lab3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "gender = ? where student_id =  " 
                                 + getStudentID());
@@ -190,7 +190,7 @@ public class CrudOperations {
                     break;
                     case 5 :
                         System.out.println("Enter new degree programme for the student:");
-                        String prog = Lab_3.scanner.next();
+                        String prog = Lab3.scanner.next();
                         pst = con.prepareStatement("UPDATE student_details SET "
                                 + "degree_programme = ? where student_id = "
                                 + getStudentID());

@@ -12,11 +12,11 @@ import java.util.Scanner;
 
 /**
  *
- * @author ahmed
+ * @author NjeriWaithumbi
  */
 
 
-public class Lab_3 {
+public class Lab3 {
         public  static Scanner scanner = new Scanner(System.in);
         public  static char choice;
         public static int i, studentId;
